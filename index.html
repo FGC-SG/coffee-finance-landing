@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coffee Finance — Approval Management</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Calibri', 'Segoe UI', system-ui, sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #2E2D9C 0%, #1a1960 45%, #0d0c4a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 860px;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Logo */
+    .logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    .logo-mark {
+      width: 56px; height: 56px;
+      background: rgba(255,255,255,0.12);
+      border: 2px solid rgba(110,141,224,0.5);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .logo-mark span { color: #fff; font-weight: 900; font-size: 26px; }
+    .logo-text { text-align: left; }
+    .logo-name { color: #fff; font-weight: 900; font-size: 22px; letter-spacing: 0.12em; }
+    .logo-sub  { color: #6E8DE0; font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
+
+    /* Divider */
+    .divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #6E8DE0 30%, #fff 50%, #6E8DE0 70%, transparent);
+      margin: 24px auto;
+      max-width: 400px;
+    }
+
+    /* Heading */
+    h1 { color: #fff; font-size: 28px; font-weight: 800; margin-bottom: 10px; }
+    .subtitle { color: rgba(255,255,255,0.65); font-size: 15px; margin-bottom: 48px; line-height: 1.6; }
+
+    /* Cards */
+    .cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 40px 32px;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.35);
+    }
+
+    .card-icon {
+      width: 72px; height: 72px;
+      border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 32px;
+      margin-bottom: 4px;
+    }
+    .card-icon.requester { background: #E3E6F7; }
+    .card-icon.approver  { background: #D1FAE5; }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #1F2937;
+      margin-bottom: 4px;
+    }
+    .card-desc {
+      font-size: 13px;
+      color: #6B7280;
+      line-height: 1.6;
+      text-align: center;
+    }
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 16px;
+      border-radius: 99px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 8px;
+    }
+    .card-badge.requester { background: #E3E6F7; color: #2E2D9C; }
+    .card-badge.approver  { background: #D1FAE5; color: #059669; }
+
+    .card-btn {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      margin-top: 8px;
+      transition: opacity 0.15s;
+    }
+    .card-btn:hover { opacity: 0.88; }
+    .card-btn.requester { background: #2E2D9C; color: #fff; }
+    .card-btn.approver  { background: #059669; color: #fff; }
+
+    /* Footer */
+    .footer {
+      color: rgba(255,255,255,0.4);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    /* Mobile */
+    @media (max-width: 600px) {
+      .cards { grid-template-columns: 1fr; }
+      h1 { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Logo -->
+    <div class="logo">
+      <div class="logo-mark"><span>CF</span></div>
+      <div class="logo-text">
+        <div class="logo-name">COFFEE FINANCE</div>
+        <div class="logo-sub">Approval Management</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <h1>Welcome to the Approval Portal</h1>
+    <p class="subtitle">
+      Please select your role to continue.<br/>
+      Powered by Felicity Global Capital Pte. Ltd.
+    </p>
+
+    <!-- Cards -->
+    <div class="cards">
+
+      <!-- Requester -->
+      <a class="card" href="https://coffee-finance-requester.vercel.app">
+        <div class="card-icon requester">📋</div>
+        <div class="card-title">Submit a Request</div>
+        <div class="card-desc">
+          I am from Coffee Finance and need to submit an approval request to the FGC team.
+        </div>
+        <span class="card-badge requester">☕ Coffee Finance</span>
+        <button class="card-btn requester">Go to Requester Portal →</button>
+      </a>
+
+      <!-- Approver -->
+      <a class="card" href="https://coffee-finance-approver.vercel.app">
+        <div class="card-icon approver">✅</div>
+        <div class="card-title">Review Requests</div>
+        <div class="card-desc">
+          I am an FGC team member and need to review, approve or reject incoming approval requests.
+        </div>
+        <span class="card-badge approver">🏢 FGC Staff Only</span>
+        <button class="card-btn approver">Go to Approver Portal →</button>
+      </a>
+
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      Confidential &nbsp;|&nbsp; Felicity Global Capital Pte. Ltd. &nbsp;|&nbsp;
+      6 Temasek Blvd. #29-04 Suntec Tower Four, Singapore 038986 &nbsp;|&nbsp; UEN 200819439G
+    </div>
+
+  </div>
+</body>
+</html>
